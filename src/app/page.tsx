@@ -3,6 +3,7 @@
 import { Provider, useAuthWidget, useWallet } from "@aarc-dev/auth-widget";
 import { useEffect, useState } from "react";
 import '@aarc-dev/auth-widget/dist/style.css';
+import { CHAIN_ID } from "./constants";
 
 export default function Home() {
   const [sessionKey, setSessionKey] = useState<string | null>(null);
