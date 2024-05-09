@@ -1,1 +1,1 @@
-const CHAIN_ID = 11155111;
+export const CHAIN_ID = 11155111;
