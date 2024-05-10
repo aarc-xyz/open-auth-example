@@ -3,11 +3,15 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import AuthConfig, { Provider, authMethods, socialAuth } from '@aarc-dev/auth-widget';
+import Wallets from '@aarc-xyz/wallet-auth';
 
 const inter = Inter({ subsets: ["latin"] });
 
 
 const config = {
+  Wallet: function Wallet(props: any) {
+    return <Wallets {...props} />
+  },
   appearance: {
     logoUrl: "https://dashboard.aarc.xyz/assets/AuthScreenLogo-CNfNjJ82.svg",
     themeColor: "#2D2D2D",
