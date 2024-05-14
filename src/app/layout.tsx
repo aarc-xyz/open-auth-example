@@ -7,7 +7,6 @@ import Wallets from '@aarc-xyz/wallet-auth';
 
 const inter = Inter({ subsets: ["latin"] });
 
-
 const config = {
   Wallet: function Wallet(props: any) {
     return <Wallets {...props} />
@@ -33,7 +32,7 @@ const config = {
   },
   authMethods: ['email', 'wallet'],
   socialAuth: ['google'],
-  aarc_api_key: '2218cd67-c7ae-47e1-8d45-51b256c7ae33',
+  aarc_api_key: process.env.AARC_API_KEY,
   chainId: 11155111,
 }
 
