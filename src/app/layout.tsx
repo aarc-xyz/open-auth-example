@@ -33,7 +33,7 @@ const config = {
   },
   authMethods: ['email', 'wallet'],
   socialAuth: ['google'],
-  aarc_api_key: '2218cd67-c7ae-47e1-8d45-51b256c7ae33',
+  aarc_api_key: '',
   chainId: 11155111,
 }
 

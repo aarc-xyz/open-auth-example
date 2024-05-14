@@ -11,9 +11,12 @@
   "dependencies": {
     "@aarc-dev/auth-widget": "^0.0.22",
     "@aarc-xyz/wallet-auth": "^0.0.1",
+    "@metamask/sdk": "^0.20.3",
+    "axios": "^1.6.8",
     "next": "14.2.3",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "wagmi": "^2.8.5"
   },
   "devDependencies": {
     "@types/node": "^20",
