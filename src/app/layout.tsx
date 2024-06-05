@@ -7,7 +7,6 @@ import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
-
 const config = {
   Wallet: function Wallet(props: any) {
     return <Wallets {...props} />
