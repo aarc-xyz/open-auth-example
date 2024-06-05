@@ -77,7 +77,7 @@ export default function Home() {
                 <button onClick={handleSubmit}>Create new Safe</button>
 
                 <br></br><br />
-                <h1>Regenrate wallet</h1>
+                <h1>Regenerate wallet</h1>
                 <br></br>
                 <form onSubmit={regenerateSafe}>
                     <div style={{ marginBottom: '1rem' }}>
