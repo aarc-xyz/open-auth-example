@@ -10,13 +10,19 @@
   },
   "dependencies": {
     "@aarc-dev/auth-widget": "^0.0.22",
+    "@aarc-dev/ethers-v6-signer": "^0.0.7",
     "@aarc-xyz/wallet-auth": "^0.0.1",
-    "@metamask/sdk": "^0.20.3",
+    "@aarc-xyz/wallet-manager": "^0.0.2",
+    "@safe-global/api-kit": "^2.3.2",
+    "@safe-global/protocol-kit": "^3.1.1",
+    "@safe-global/safe-core-sdk-types": "^4.1.1",
     "axios": "^1.6.8",
+    "ethers": "^6.12.1",
     "next": "14.2.3",
     "react": "^18",
     "react-dom": "^18",
-    "wagmi": "^2.8.5"
+    "viem": "^2.11.0",
+    "wagmi": "^2.9.2"
   },
   "devDependencies": {
     "@types/node": "^20",
