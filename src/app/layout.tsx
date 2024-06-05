@@ -1,9 +1,9 @@
 'use client'
-import type { Metadata } from "next";
+import { Provider } from '@aarc-dev/auth-widget';
+import Wallets from '@aarc-xyz/wallet-auth';
 import { Inter } from "next/font/google";
 import "./globals.css";
-import AuthConfig, { Provider, authMethods, socialAuth } from '@aarc-dev/auth-widget';
-import Wallets from '@aarc-xyz/wallet-auth';
+// import {configureChains} from 'wagmi';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,7 +18,8 @@ const config = {
   },
   callbacks: {
     onSuccess: (data: any) => {
-     console.log("Success ", data);
+      console.log("Success ", data);
+      localStorage.setItem('authData', data);
     },
     onError: (data: any) => {
       console.log("onError", data)
@@ -44,7 +45,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <Provider config={config}>
-      <body className={inter.className}>{children}</body>
+        <body className={inter.className}>{children}</body>
       </Provider>
     </html>
   );
