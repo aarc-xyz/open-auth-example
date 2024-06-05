@@ -17,7 +17,7 @@ declare global {
 export default function Home() {
     const [sessionKey, setSessionKey] = useState<string>('');
     const [existingSafeAddress, setExistingSafeAddress] = useState<string>('');
-    const [authData, setAuthData] = useState<any>({});
+    const [authData, setAuthData] = useState<any>();
     const [originChain, setOriginChain] = useState<number>(0);
     const [destChain, setDestChain] = useState<number>(0);
     const hookSafe = useSafeCreate();
@@ -28,19 +28,18 @@ export default function Home() {
     useEffect(() => {
         const setupSigner = async () => {
             const userSessionKey = localStorage.getItem('sessionKey');
-            const authData = localStorage.getItem('authData');
-            console.log("authData and sessionKey ", authData, userSessionKey);
-            if (userSessionKey && authData) {
+            const userdata = localStorage.getItem('authData');
+            if (userSessionKey && userdata) {
                 setSessionKey(userSessionKey)
-                setAuthData(JSON.parse(authData));
+                setAuthData(JSON.parse(userdata));
                 const network = await provider.getNetwork();
                 setDestChain(Number(network.chainId));
                 signer = new AarcEthersSigner(provider,
                     {
                         provider: OpenAuthProvider.GOOGLE,
-                        session_identifier: "",
-                        apiKeyId: '',
-                        wallet_address: '',
+                        session_identifier: authData?.session_identifier,
+                        apiKeyId: process.env.AARC_API_KEY,
+                        wallet_address: authData?.address,
                         sessionKey: sessionKey,
                         chainId: Number(network.chainId)
                     }
@@ -57,9 +56,9 @@ export default function Home() {
         console.log("safe created ", safe);
     };
 
-    const regerateSafe = async (e: any) => {
+    const regenerateSafe = async (e: any) => {
         console.log("getting data to regenrate safe");
-        const response = await hookSafe.regerateSafe(signer, originChain, destChain, existingSafeAddress);
+        const response = await hookSafe.regenerateSafe(signer, originChain, destChain, existingSafeAddress);
         console.log("response ", response);
     }
 
@@ -80,7 +79,7 @@ export default function Home() {
                 <br></br><br />
                 <h1>Regenrate wallet</h1>
                 <br></br>
-                <form onSubmit={regerateSafe}>
+                <form onSubmit={regenerateSafe}>
                     <div style={{ marginBottom: '1rem' }}>
                         <label htmlFor="originChain">Origin Chain</label>
                         <input
@@ -104,7 +103,7 @@ export default function Home() {
                             required
                         />
                     </div>
-                    <button type="submit" style={{ padding: '0.5rem 1rem' }}>Regenrate safe</button>
+                    <button type="submit" style={{ padding: '0.5rem 1rem' }}>Regenerate safe</button>
                 </form>
             </div>
         </>

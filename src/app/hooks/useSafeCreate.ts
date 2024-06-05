@@ -28,7 +28,7 @@ const useSafeCreate = () => {
         return hexData;
     }
 
-    async function regerateSafe(signer: AarcEthersSigner, originChain: number, destChain: number, prevSafeAddress: string) {
+    async function regenerateSafe(signer: AarcEthersSigner, originChain: number, destChain: number, prevSafeAddress: string) {
         const deployedData = await getDeployData(originChain, prevSafeAddress);
         console.log("deployed hex data ", deployedData);
         const config = {
@@ -71,7 +71,7 @@ const useSafeCreate = () => {
 
     return {
         createNewSafe,
-        regerateSafe
+        regenerateSafe
     }
 }
 export default useSafeCreate;
