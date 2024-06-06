@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@aarc-dev/auth-widget": "^0.0.22",
+    "@aarc-xyz/auth-widget": "^0.0.4",
     "@aarc-xyz/wallet-auth": "^0.0.1",
     "next": "14.2.3",
     "react": "^18",
