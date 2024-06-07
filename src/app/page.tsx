@@ -1,8 +1,8 @@
 "use client"
 
-import { Provider, useAuthWidget, useWallet } from "@aarc-dev/auth-widget";
+import { useAuthWidget, useWallet } from "@aarc-xyz/auth-widget";
+import '@aarc-xyz/auth-widget/dist/style.css';
 import { useEffect, useState } from "react";
-import '@aarc-dev/auth-widget/dist/style.css';
 import { CHAIN_ID } from "./constants";
 
 export default function Home() {
