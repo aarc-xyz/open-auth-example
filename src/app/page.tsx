@@ -28,7 +28,7 @@ export default function Home() {
   }
     , [])
 
-  const handleSubmit = async(e: any) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
     console.log('Sending transaction...');
     console.log('Receiver Address:', receiverAddress);
@@ -55,7 +55,7 @@ export default function Home() {
         <div style={{ width: '400px', padding: '20px', boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.1)', borderRadius: '8px', backgroundColor: '#fff' }}>
           <h2 style={{ textAlign: 'center', marginBottom: '20px' }}>Send Transaction</h2>
           <form onSubmit={handleSubmit}>
-            <div style={{ marginBottom: '1rem' }}>
+            <div style={{ marginBottom: '1rem', color: "black" }}>
               <label htmlFor="receiverAddress">Receiver Address:</label>
               <input
                 style={{ marginLeft: "5px", borderRadius: "5px", border: "black 1px solid" }}
@@ -66,7 +66,7 @@ export default function Home() {
                 required
               />
             </div>
-            <div style={{ marginBottom: '1rem' }}>
+            <div style={{ marginBottom: '1rem', color: "black" }}>
               <label htmlFor="tokenValue">Token Value:</label>
               <input
                 style={{ marginLeft: "5px", borderRadius: "5px", border: "black 1px solid" }}

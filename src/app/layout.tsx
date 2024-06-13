@@ -23,8 +23,8 @@ export default function RootLayout({
     },
     callbacks: {
       onSuccess: (data: any) => {
-       console.log("Success ", data.data.key);
-       window.location.reload();
+        console.log("Success ", data.data.key);
+        window.location.reload();
       },
       onError: (data: any) => {
         console.log("onError", data)
@@ -38,14 +38,14 @@ export default function RootLayout({
     },
     authMethods: ['email', 'wallet'],
     socialAuth: ['google'],
-    aarc_api_key: process.env.AARC_API_KEY,
+    aarc_api_key: process.env.NEXT_PUBLIC_AARC_API_KEY,
     chainId: 11155111,
   }
 
   return (
     <html lang="en">
       <Provider config={config}>
-      <body className={inter.className}>{children}</body>
+        <body className={inter.className}>{children}</body>
       </Provider>
     </html>
   );
