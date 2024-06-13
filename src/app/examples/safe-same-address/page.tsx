@@ -1,7 +1,7 @@
 "use client"
 
-import '@aarc-dev/auth-widget/dist/style.css';
-import { AarcEthersSigner, OpenAuthProvider } from "@aarc-dev/ethers-v6-signer";
+import '@aarc-xyz/auth-widget/dist/style.css';
+import { AarcEthersSigner } from "@aarc-xyz/ethers-v6-signer";
 import '@aarc-xyz/wallet-manager/dist/style.css';
 import { ethers } from 'ethers';
 import { useEffect, useState } from "react";
@@ -23,6 +23,7 @@ export default function Home() {
     const hookSafe = useSafeCreate();
 
     const provider = new ethers.BrowserProvider(window.ethereum);
+    const rpcUrl = process.env.NEXT_PUBLIC_RPC_URL || '';
     let signer: AarcEthersSigner;
 
     useEffect(() => {
@@ -34,11 +35,9 @@ export default function Home() {
                 setAuthData(JSON.parse(userdata));
                 const network = await provider.getNetwork();
                 setDestChain(Number(network.chainId));
-                signer = new AarcEthersSigner(provider,
+                signer = new AarcEthersSigner(rpcUrl,
                     {
-                        provider: OpenAuthProvider.GOOGLE,
-                        session_identifier: authData?.session_identifier,
-                        apiKeyId: process.env.AARC_API_KEY,
+                        apiKeyId: process.env.NEXT_PUBLIC_AARC_API_KEY || '',
                         wallet_address: authData?.address,
                         sessionKey: sessionKey,
                         chainId: Number(network.chainId)

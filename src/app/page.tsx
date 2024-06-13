@@ -1,7 +1,7 @@
 "use client"
 
-import { useAuthWidget, useWallet } from "@aarc-dev/auth-widget";
-import '@aarc-dev/auth-widget/dist/style.css';
+import { useAuthWidget, useWallet } from "@aarc-xyz/auth-widget";
+import '@aarc-xyz/auth-widget/dist/style.css';
 import { useEffect, useState } from "react";
 import { CHAIN_ID } from "./constants";
 

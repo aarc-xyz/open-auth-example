@@ -9,8 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@aarc-dev/auth-widget": "^0.0.22",
-    "@aarc-dev/ethers-v6-signer": "^0.0.7",
+    "@aarc-xyz/auth-widget": "^0.0.5",
+    "@aarc-xyz/ethers-v6-signer": "^0.0.3",
     "@aarc-xyz/wallet-auth": "^0.0.1",
     "@aarc-xyz/wallet-manager": "^0.0.2",
     "@safe-global/api-kit": "^2.3.2",

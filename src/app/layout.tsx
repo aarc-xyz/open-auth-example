@@ -1,5 +1,5 @@
 'use client'
-import { Provider } from '@aarc-dev/auth-widget';
+import { Provider } from '@aarc-xyz/auth-widget';
 import Wallets from '@aarc-xyz/wallet-auth';
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -33,7 +33,7 @@ const config = {
   },
   authMethods: ['email', 'wallet'],
   socialAuth: ['google'],
-  aarc_api_key: process.env.AARC_API_KEY,
+  aarc_api_key: process.env.NEXT_PUBLIC_AARC_API_KEY,
   chainId: 11155111,
 }
 
