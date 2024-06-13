@@ -1,4 +1,4 @@
-import { AarcEthersSigner } from '@aarc-dev/ethers-v6-signer';
+import { AarcEthersSigner } from '@aarc-xyz/ethers-v6-signer';
 import { EthersAdapter, SafeAccountConfig, SafeFactory } from '@safe-global/protocol-kit';
 import axios from 'axios';
 import { ethers } from 'ethers';
@@ -9,11 +9,11 @@ const useSafeCreate = () => {
     let apiKeyMap = new Map<number, string[]>();
     const PROXY_FACTORY_ADDRESS = "0xa6b71e26c5e0845f74c812102ca7114b6a896ab2"; // SAME ACROSS ALL SUPPORTED CHAINS
 
-    apiKeyMap.set(42161, ["https://api.arbiscan.io/api?", process.env.ARBI_API_KEY]);
-    apiKeyMap.set(137, ["https://api.polygonscan.com/api?", process.env.POLYGON_API_KEY]);
-    apiKeyMap.set(80002, ["https://api-amoy.polygonscan.com/api?", process.env.POLYGON_API_KEY]);
-    apiKeyMap.set(1, ["https://api.etherscan.io/api?", process.env.ETHEREUM_API_KEY]);
-    apiKeyMap.set(11155111, ["https://api-sepolia.etherscan.io/api?", process.env.ETHEREUM_API_KEY]);
+    apiKeyMap.set(42161, ["https://api.arbiscan.io/api?", process.env.ARBI_API_KEY || ""]);
+    apiKeyMap.set(137, ["https://api.polygonscan.com/api?", process.env.POLYGON_API_KEY || ""]);
+    apiKeyMap.set(80002, ["https://api-amoy.polygonscan.com/api?", process.env.POLYGON_API_KEY || ""]);
+    apiKeyMap.set(1, ["https://api.etherscan.io/api?", process.env.ETHEREUM_API_KEY || ""]);
+    apiKeyMap.set(11155111, ["https://api-sepolia.etherscan.io/api?", process.env.ETHEREUM_API_KEY || ""]);
 
     async function getDeployData(originChain: number, prevSafeAddress?: string) {
         const getContractCreation = `module=contract&action=getcontractcreation&contractaddresses=${prevSafeAddress}&apikey=`;
