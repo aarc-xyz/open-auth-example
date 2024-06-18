@@ -4,8 +4,63 @@ import { useAuthWidget, useWallet } from "@aarc-xyz/auth-widget";
 import '@aarc-xyz/auth-widget/dist/style.css';
 import { useEffect, useState } from "react";
 import { CHAIN_ID } from "./constants";
+import Wallets from '@aarc-xyz/wallet-auth';
+import { Provider } from '@aarc-xyz/auth-widget';
 
-export default function Home() {
+
+export default function App() {
+  const [data, setData] = useState(null);
+  const config = {
+    Wallet: function Wallet(props: any) {
+      return <Wallets {...props} />
+    },
+    appearance: {
+      logoUrl: "https://dashboard.aarc.xyz/assets/AuthScreenLogo-CNfNjJ82.svg",
+      themeColor: "#2D2D2D",
+      darkMode: false,
+      textColor: "white",
+    },
+    callbacks: {
+      onSuccess: (data: any) => {
+        // console.log("Success ", data.data.key);
+        // window.location.reload();
+        console.log(data, "onSuccess")
+        setData(data)
+        // openAuthWidget();
+
+      },
+      onError: (data: any) => {
+        console.log("onError", data)
+      },
+      onClose: (data: any) => {
+        console.log("onClose", data)
+      },
+      onOpen: (data: any) => {
+        console.log("onOpen", data)
+      }
+    },
+    authMethods: ['email', 'wallet'],
+    socialAuth: ['google'],
+    aarc_api_key: process.env.NEXT_PUBLIC_AARC_API_KEY,
+    chainId: 11155111,
+  }
+
+  return (
+    <div>
+      <Provider config={config}>
+        {data ? <div
+          style={{
+            width: "60%",
+            margin: "auto",
+          }}
+        >{JSON.stringify(data)}</div> : <Home />}
+      </Provider>
+    </div>
+  )
+
+}
+
+export function Home() {
   const [sessionKey, setSessionKey] = useState<string | null>(null);
   const [receiverAddress, setReceiverAddress] = useState('');
   const [tokenValue, setTokenValue] = useState('');

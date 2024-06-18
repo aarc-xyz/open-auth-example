@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@aarc-xyz/auth-widget':
-    specifier: ^0.0.5
-    version: 0.0.5(@types/react@18.3.3)(viem@2.13.9)
+    specifier: ^0.0.6
+    version: 0.0.6(@types/react@18.3.3)(viem@2.13.9)
   '@aarc-xyz/wallet-auth':
     specifier: ^0.0.4
     version: 0.0.4(@types/node@20.14.2)(@types/react@18.3.3)(typescript@5.4.5)
@@ -49,8 +49,8 @@ devDependencies:
 
 packages:
 
-  /@aarc-xyz/auth-widget@0.0.5(@types/react@18.3.3)(viem@2.13.9):
-    resolution: {integrity: sha512-Ebaj728q7lhiOSqMrXYMuR7yteEcc9X2gaS6US5Z7tgh5YjoLqZ531VMfyQXsOsroJxj2Dv93TVRRi2ZqGUybg==}
+  /@aarc-xyz/auth-widget@0.0.6(@types/react@18.3.3)(viem@2.13.9):
+    resolution: {integrity: sha512-IgdXvI0aqE4BREv5zZbDIsxnn7DfdDt0tVr7icmuXRESdodRAk8DfqjvVrqEZgctQTmeNec00q0X6yVHbKizWw==}
     dependencies:
       '@farcaster/auth-kit': 0.2.2(@types/react@18.3.3)(react-dom@18.3.1)(react@18.3.1)(viem@2.13.9)
       antd: 5.18.1(react-dom@18.3.1)(react@18.3.1)
